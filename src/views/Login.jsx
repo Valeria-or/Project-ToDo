@@ -4,8 +4,9 @@ const Layout = require('./Layout');
 module.exports = function Login(){
     return(
         <Layout>
-            <link rel='stylesheet' href='/css/login.css' />
+            <link rel='stylesheet' href='/css/forms.css' />
             <script defer src='/js/login.js' />
+            <div id='divStyle'>
             <div id='formDiv'>
               <form className='loginForm'>
                 <label>Логин: </label>
@@ -15,6 +16,7 @@ module.exports = function Login(){
                 <button type='submit' className='buttonReg'>Войти</button>
                 <div className='message'></div>
             </form> 
+            </div>
             </div>
         </Layout>
     )
