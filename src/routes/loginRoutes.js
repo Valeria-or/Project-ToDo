@@ -1,4 +1,5 @@
 const express = require('express');
+const bcrypt = require('bcrypt');
 const renderTemplate = require('../lib/renderTemplate');
 const Login = require('../views/Login');
 const { User } = require("../../db/models")
@@ -14,7 +15,8 @@ loginRoutes.post("/", async (req,res) => {
     try {
         const user = await User.findOne({where: {login}})
         if(user){
-            if(user.password === password){
+            const checkPass = await bcrypt.compare(password, user.password)
+            if(checkPass){
                 res.json({mes: "ура"})
             } else {
                 res.json({err: "Пароль неверный"})
