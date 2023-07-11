@@ -1,0 +1,10 @@
+*{
+    font-family: 'Didact Gothic', sans-serif;
+}
+body{
+    background-image: url("/img/page.jpg");
+    background-repeat: no-repeat; 
+    background-position: top center;
+    background-attachment: fixed;
+    background-size: cover;
+}

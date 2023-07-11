@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+   }
+
+div{
+    position: relative;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: transparent;
+    backdrop-filter: blur(30px);
+    /* border: 20px rgba(255, 255, 255, .5); */
+    box-shadow: 0 0 25px rgba(0, 0, 0, .5);
+    position: fixed;
+    width: 100%;
+}
+
+li {
+    float: right;
+}
+.home{
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+    font-size: 27px;
+    color: rgb(255, 255, 255, 0.8);
+}

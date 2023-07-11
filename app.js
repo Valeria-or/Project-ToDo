@@ -3,6 +3,7 @@ const morgan = require('morgan');
 const session = require('express-session')
 const FileStore = require('session-file-store')(session)
 const path = require('path');
+const indexRoutes = require('./src/routes/indexRoutes');
 
 const app = express();
 
@@ -26,9 +27,7 @@ app.use(express.json());
 app.use(express.static(path.join(process.cwd(), 'public')));
 app.use(session(sessionConfig));
 
-app.get("/", (req, res) => {
-    res.send("Все гуд")
-})
+app.use("/", indexRoutes)
 
 app.listen(PORT, () => {
     console.log("Сервер успешно запущен :3")
