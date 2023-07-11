@@ -13,7 +13,11 @@ module.exports = {
         type: Sequelize.STRING
       },
       list_id: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {
+          model: "Lists",
+          key: "id",
+        },
       },
       createdAt: {
         allowNull: false,

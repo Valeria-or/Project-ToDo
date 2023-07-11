@@ -103,7 +103,11 @@ module.exports = {
         type: Sequelize.BOOLEAN
       },
       tracker_id: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {
+          model: "Trackers",
+          key: "id",
+        },
       },
       createdAt: {
         allowNull: false,
