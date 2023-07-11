@@ -1,11 +1,13 @@
 const React = require('react');
 const Layout = require('./Layout');
+const Navbar = require('./Navbar');
 
 module.exports = function Login(){
     return(
         <Layout>
             <link rel='stylesheet' href='/css/forms.css' />
             <script defer src='/js/login.js' />
+            <Navbar />
             <div id='divStyle'>
             <div id='formDiv'>
               <form className='loginForm'>

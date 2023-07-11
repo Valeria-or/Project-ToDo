@@ -7,6 +7,8 @@ const path = require('path');
 const indexRoutes = require('./src/routes/indexRoutes');
 const regRoutes = require('./src/routes/regRoutes');
 const loginRoutes = require('./src/routes/loginRoutes');
+const homeRoutes = require('./src/routes/homeRoutes');
+const deckRoutes = require('./src/routes/deckRouter');
 
 const app = express();
 
@@ -33,6 +35,8 @@ app.use(session(sessionConfig));
 app.use("/", indexRoutes)
 app.use("/registration", regRoutes)
 app.use("/login", loginRoutes)
+app.use("/home", homeRoutes)
+app.use("/deck", deckRoutes)
 
 app.listen(PORT, () => {
     console.log("Сервер успешно запущен :3")

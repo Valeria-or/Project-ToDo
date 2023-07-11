@@ -8,4 +8,12 @@ indexRoutes.get("/", (req, res) => {
     renderTemplate(Start, {}, res)
 })
 
+indexRoutes.get("/logout", (req, res) => {
+    req.session.destroy(() => {
+        res.clearCookie('ToDo-Project');
+        res.redirect('/');
+    });
+    
+})
+
 module.exports = indexRoutes

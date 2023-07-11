@@ -1,11 +1,13 @@
 const React = require('react');
 const Layout = require('./Layout');
+const Navbar = require('./Navbar');
 
 module.exports = function Reg(){
     return(
         <Layout>
             <link rel='stylesheet' href='/css/forms.css' />
             <script defer src='/js/register.js' />
+            <Navbar />
             <div id='divStyle'>
                 <div id='formDiv'>
               <form className='regForm'>

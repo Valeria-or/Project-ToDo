@@ -17,7 +17,10 @@ loginRoutes.post("/", async (req,res) => {
         if(user){
             const checkPass = await bcrypt.compare(password, user.password)
             if(checkPass){
+            req.session.login = user.login;
+            req.session.save(() => {
                 res.json({mes: "ура"})
+            })
             } else {
                 res.json({err: "Пароль неверный"})
             }

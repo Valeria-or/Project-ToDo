@@ -14,7 +14,6 @@ ul {
     overflow: hidden;
     background-color: transparent;
     backdrop-filter: blur(30px);
-    /* border: 20px rgba(255, 255, 255, .5); */
     box-shadow: 0 0 25px rgba(0, 0, 0, .5);
     position: fixed;
     width: 100%;
