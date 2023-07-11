@@ -3,7 +3,10 @@ const morgan = require('morgan');
 const session = require('express-session')
 const FileStore = require('session-file-store')(session)
 const path = require('path');
+
 const indexRoutes = require('./src/routes/indexRoutes');
+const regRoutes = require('./src/routes/regRoutes');
+const loginRoutes = require('./src/routes/loginRoutes');
 
 const app = express();
 
@@ -28,6 +31,8 @@ app.use(express.static(path.join(process.cwd(), 'public')));
 app.use(session(sessionConfig));
 
 app.use("/", indexRoutes)
+app.use("/registration", regRoutes)
+app.use("/login", loginRoutes)
 
 app.listen(PORT, () => {
     console.log("Сервер успешно запущен :3")
