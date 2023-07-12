@@ -4,7 +4,13 @@ const list = document.querySelector("#list")
 const input = document.querySelector("#addText")
 const body = document.querySelector("#body")
 
+
 addDelo.addEventListener("submit", async (e) => {
+    const todoAll = document.querySelectorAll(".todo")
+    const todoId = todoAll[todoAll.length-1].id
+    const numbetTodoId = Number(todoId) 
+    // console.log(todoAll) 
+    // console.log(todoAll[todoAll.length-1].id)
     e.preventDefault()
     console.log("hi")
     const data = new FormData(addDelo)
@@ -26,7 +32,7 @@ addDelo.addEventListener("submit", async (e) => {
                 alert(result.err)
             } else {
             const newToDo = `
-            <div class="todo">
+            <div class="todo" id=${numbetTodoId+1}>
               <input type="checkbox" class="check"/>
               <span class="text">${inputs.body}</span>
               <span class="delete-icon">

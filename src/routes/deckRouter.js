@@ -20,7 +20,6 @@ deckRoutes.post("/", async (req, res) => {
         const login = req.session.login
         const user = await User.findOne({where: {login} })
         const userId = user.id
-        // console.log(userId)
         const newDeck = await Deck.create({ title, user_id:userId })
         if(newDeck){
             res.json({mes: "успешно"})
@@ -34,7 +33,6 @@ deckRoutes.post("/", async (req, res) => {
 
 deckRoutes.delete("/", async (req, res) => {
     const { id } = req.body
-    // console.log(req.body)
     const card = await Deck.destroy({where:{id}})
     if(card !== 1){
         res.json({err: "no"})
@@ -49,7 +47,6 @@ deckRoutes.get("/:id", async (req, res) => {
     const card = await Deck.findOne({where:{id}})
     const deckId = card.id
     const todo = await ToDo.findAll({where: {deck_id: deckId}})
-    // console.log(todo)
     renderTemplate(DeckList, {login, card, todo}, res)
 
 })
@@ -67,7 +64,6 @@ deckRoutes.post("/:id", async (req, res) => {
     } else {
         res.json({err: "error"})
     }
-    // console.log(todo)
     } catch (error) {
         res.send("bed")
     }
@@ -75,7 +71,6 @@ deckRoutes.post("/:id", async (req, res) => {
 
 deckRoutes.delete("/todo", async (req, res) => {
     const { id } = req.body
-    // console.log(req.body)
     const todo = await ToDo.destroy({where:{id}})
     if(todo !== 1){
         res.json({err: "no"})
