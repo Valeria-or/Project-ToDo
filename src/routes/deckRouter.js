@@ -1,7 +1,8 @@
 const express = require('express');
 const renderTemplate = require('../lib/renderTemplate');
 const DeckW = require('../views/Deck');
-const { Deck, User } = require("../../db/models")
+const { Deck, User } = require("../../db/models");
+const DeckList = require('../views/DeckList');
 
 const deckRoutes = express.Router();
 
@@ -40,6 +41,15 @@ deckRoutes.delete("/", async (req, res) => {
     } else {
         res.json({mes: "успешно"})
     }
+})
+
+deckRoutes.get("/:id", async (req, res) => {
+    const {id} = req.params
+    const login = req.session.login
+    const card = await Deck.findOne({where:{id}})
+    const title = card.title
+    renderTemplate(DeckList, {login, title}, res)
+
 })
 
 module.exports = deckRoutes

@@ -5,10 +5,10 @@ module.exports = function Deck({ login, deck }) {
   return (
     <Layout login={login}>
       <link rel="stylesheet" href="/css/deck.css" />
-      <script
+      {/* <script
         src="https://kit.fontawesome.com/d5b51f3ffe.js"
         crossOrigin="anonymous"
-      ></script>
+      ></script> */}
       <script defer src="/js/deck.js" />
       <div className="parent">
         <div>
@@ -25,21 +25,11 @@ module.exports = function Deck({ login, deck }) {
       <div className="container">
         {deck.length ? (
           deck.map((el) => (
-            // <div className="cardsDiv">
-            //     <div className="card text-center mb-3" style={{ width: "18rem" }}>
-            //       <div className="card-body">
-            //         <h5 className="card-title">{el.title}</h5>
-            //         <a href="#" className="btn btn-primary">
-            //           Go somewhere
-            //         </a>
-            //       </div>
-            //     </div>
-            //   </div>
             <div className="cardsDiv">
               <div className="card text-center mb-3" style={{ width: "18rem" }}>
                 <div className="card-body">
                   <h5 className="card-title">{el.title}</h5>
-                  <a href="#" className="btn btn-primary">
+                  <a href={`/deck/${el.id}`} className="btn btn-primary">
                     Go somewhere
                   </a>
                   <span className="delete-icon">
