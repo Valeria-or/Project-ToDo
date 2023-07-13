@@ -1,0 +1,11 @@
+.main{
+    display: flex;
+    justify-content: center;
+    max-width: 500px;
+}
+.parent{
+    display: flex;
+    justify-content: center;
+    margin-top: 300px;
+    font-size: 30px;
+}

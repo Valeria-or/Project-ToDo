@@ -37,10 +37,10 @@ addDelo.addEventListener("submit", async (e) => {
         alert(result.err);
       } else {
         const newToDo = `
-            <li className="todo" id=${numbetTodoId + 1}>
+            <li class="todo" id=${numbetTodoId + 1}>
             ${inputs.title}
-            <span className="delete-icon">
-            <i className="far fa-trash-alt"></i>
+            <span class="delete-icon">
+            <i class="far fa-trash-alt"></i>
             </span>
             </li>
             `;

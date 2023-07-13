@@ -11,6 +11,7 @@ module.exports = function NavbarLogin({login}){
                   <img className='photo' src="/img/chel.webp"></img>  
                 </div>
                 <a href="/profile">{login}</a>
+                <a href="/home">Home</a>
                 <a href="/deck">Deck</a>
                 <a href="/tracker">Tracker</a>
                 <a href="/list">List</a>
