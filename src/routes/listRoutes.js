@@ -49,20 +49,20 @@ listRoutes.get("/:id", async (req, res) => {
     const login = req.session.login
     const card = await List.findOne({where:{id}})
     const deckId = card.id
-    const todo = await OneList.findAll({where: {list_id: deckId}})
+    const todo = await OneList.findAll({where: {list_id: id}})
     renderTemplate(OneLists, {login, card, todo}, res)
 
 })
 
 listRoutes.post("/:id", async (req, res) => {
-    const {title} = req.body
+    const {title, id} = req.body
     const login = req.session.login
     try {
         const user = await User.findOne({where: {login}})
         const userId = user.id
         const deck = await List.findOne({where:{user_id: userId}})
         const deckId = deck.id
-        const todo = await OneList.create({title, list_id: deckId})
+        const todo = await OneList.create({title, list_id: id})
     if(todo){
         res.json({mes: "okey"})
     } else {

@@ -10,6 +10,7 @@ const loginRoutes = require('./src/routes/loginRoutes');
 const homeRoutes = require('./src/routes/homeRoutes');
 const deckRoutes = require('./src/routes/deckRouter');
 const listRoutes = require('./src/routes/listRoutes');
+const trackerRoutes = require('./src/routes/trackerRouter');
 
 const app = express();
 
@@ -39,6 +40,7 @@ app.use("/login", loginRoutes)
 app.use("/home", homeRoutes)
 app.use("/deck", deckRoutes)
 app.use("/list", listRoutes)
+app.use("/tracker", trackerRoutes)
 
 app.listen(PORT, () => {
     console.log("Сервер успешно запущен :3")

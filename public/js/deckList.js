@@ -7,14 +7,23 @@ const body = document.querySelector("#body")
 
 
 addDelo.addEventListener("submit", async (e) => {
-    const todoAll = document.querySelectorAll(".todo")
-    const todoId = todoAll[todoAll.length-1].id
-    const numbetTodoId = Number(todoId) 
     e.preventDefault()
     console.log("hi")
+    const todoAll = document.querySelectorAll(".todo")
+    let todoId
+    if(todoAll.length === 0){
+        todoId = 0;
+      } else {
+        todoId = todoAll[todoAll.length - 1].id;
+      }
+    // const todoId = todoAll[todoAll.length-1].id
+    const numbetTodoId = Number(todoId) 
+    
     const data = new FormData(addDelo)
     const inputs = Object.fromEntries(data)
     const id = idCard.className
+    console.log(id)
+    const p = {"body": inputs.body, "id": id}
     if (!inputs.body) {
         alert("Введите что-нибудь")
       } else {
@@ -24,7 +33,7 @@ addDelo.addEventListener("submit", async (e) => {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(inputs)
+                body: JSON.stringify(p)
             })
             const result = await response.json()
             if(result.err){

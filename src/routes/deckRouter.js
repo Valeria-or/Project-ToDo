@@ -46,22 +46,25 @@ deckRoutes.delete("/", async (req, res) => {
 
 deckRoutes.get("/:id", async (req, res) => {
     const {id} = req.params
+    console.log(id)
     const login = req.session.login
     const card = await Deck.findOne({where:{id}})
+    console.log(card)
     const deckId = card.id
-    const todo = await ToDo.findAll({where: {deck_id: deckId}})
+    const todo = await ToDo.findAll({where: {deck_id:id}})
     renderTemplate(DeckList, {login, card, todo}, res)
 
 })
 deckRoutes.post("/:id", async (req, res) => {
-    const {body} = req.body
+    const {body, id} = req.body
+    console.log(body, id)
     const login = req.session.login
     try {
         const user = await User.findOne({where: {login}})
         const userId = user.id
         const deck = await Deck.findOne({where:{user_id: userId}})
         const deckId = deck.id
-        const todo = await ToDo.create({body, deck_id: deckId, checked: false})
+        const todo = await ToDo.create({body, deck_id: id, checked: false})
     if(todo){
         res.json({mes: "okey"})
     } else {

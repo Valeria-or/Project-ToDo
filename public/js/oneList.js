@@ -17,11 +17,10 @@ addDelo.addEventListener("submit", async (e) => {
   }
   
   const numbetTodoId = Number(todoId);
-  
-  
   const data = new FormData(addDelo);
   const inputs = Object.fromEntries(data);
   const id = idCard.className;
+  const p = {"title": inputs.title, "id": id}
   if (!inputs.title) {
     alert("Введите что-нибудь");
   } else {
@@ -31,7 +30,7 @@ addDelo.addEventListener("submit", async (e) => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(inputs),
+        body: JSON.stringify(p),
       });
       const result = await response.json();
       if (result.err) {
