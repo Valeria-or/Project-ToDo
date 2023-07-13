@@ -79,5 +79,16 @@ deckRoutes.delete("/todo", async (req, res) => {
     }
 })
 
+deckRoutes.put("/todo", async (req, res) => {
+    const { id, checked } = req.body
+    const checkedBox = await ToDo.update({ checked},
+    { where: { id } })
+    if(checkedBox[0] !== 1){
+        res.json({err: "no"})
+    } else {
+        res.json({mes: "успешно"})
+    }
+})
+
 module.exports = deckRoutes
 

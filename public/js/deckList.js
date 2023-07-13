@@ -3,14 +3,13 @@ const idCard = document.querySelector("#idCard")
 const list = document.querySelector("#list")
 const input = document.querySelector("#addText")
 const body = document.querySelector("#body")
+// const check = document.querySelector(".ckeck")
 
 
 addDelo.addEventListener("submit", async (e) => {
     const todoAll = document.querySelectorAll(".todo")
     const todoId = todoAll[todoAll.length-1].id
     const numbetTodoId = Number(todoId) 
-    // console.log(todoAll) 
-    // console.log(todoAll[todoAll.length-1].id)
     e.preventDefault()
     console.log("hi")
     const data = new FormData(addDelo)
@@ -52,9 +51,10 @@ addDelo.addEventListener("submit", async (e) => {
         }
       }
 })
+
 body.addEventListener("click", async (e) => {
-    console.log(e.target)
-    console.log(e.target.parentElement.parentElement)
+    // console.log(e.target)
+    // console.log(e.target.parentElement.parentElement)
     const buttonDelete = e.target
     if(buttonDelete.className === 'far fa-trash-alt'){
         const todo = buttonDelete.parentElement.parentElement
@@ -69,6 +69,28 @@ body.addEventListener("click", async (e) => {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(todoJson)
+            })
+            const result = await response.json()
+            if(result.err){
+                alert(result.err) 
+            } 
+        } catch (error) {
+            alert('Чтото совсем всё плохо :((((', error)
+        }
+    }
+
+    if(e.target.className === 'check'){
+        const checkButton = e.target
+        const checked = checkButton.checked
+        const checkButtonId = checkButton.parentElement.id
+        const checkButtonJson = {"id": checkButtonId, "checked": checked}
+        try {
+            const response = await fetch("/deck/todo", {
+                method: "PUT",
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(checkButtonJson)
             })
             const result = await response.json()
             if(result.err){

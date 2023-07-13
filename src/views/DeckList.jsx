@@ -18,7 +18,7 @@ module.exports = function DeckList({ login, card, todo }) {
             <div className="todo" id={el.id} key={el.id}>
                 {
                     el.checked ?
-                    <input type="checkbox" className="check" checked/>
+                    <input type="checkbox" className="check" defaultChecked/>
                     :
                     <input type="checkbox" className="check" />
                 }
