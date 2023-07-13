@@ -1,15 +1,11 @@
 const React = require("react");
 const Layout = require("./Layout");
 
-module.exports = function Deck({ login, deck }) {
+module.exports = function Deck({ login, deck, button, mes, script }) {
   return (
     <Layout login={login}>
       <link rel="stylesheet" href="/css/deck.css" />
-      {/* <script
-        src="https://kit.fontawesome.com/d5b51f3ffe.js"
-        crossOrigin="anonymous"
-      ></script> */}
-      <script defer src="/js/deck.js" />
+      <script defer src={`/js/${script}.js`} />
       <div className="parent">
         <div>
           <button
@@ -18,7 +14,7 @@ module.exports = function Deck({ login, deck }) {
             data-bs-target="#exampleModal"
             data-bs-whatever="@mdo"
           >
-            Создайте новую доску
+            {button}
           </button>
         </div>
       </div>
@@ -29,7 +25,7 @@ module.exports = function Deck({ login, deck }) {
               <div className="card text-center mb-3" style={{ width: "18rem" }}>
                 <div className="card-body">
                   <h5 className="card-title">{el.title}</h5>
-                  <a href={`/deck/${el.id}`} className="btn btn-primary">
+                  <a href={`/${script}/${el.id}`} className="btn btn-primary">
                     Go somewhere
                   </a>
                   <span className="delete-icon">
@@ -41,7 +37,7 @@ module.exports = function Deck({ login, deck }) {
             </div>
           ))
         ) : (
-          <h3>У вас пока нет досок</h3>
+          <h3>У вас пока нет {mes}</h3>
         )}
       </div>
       <div

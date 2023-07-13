@@ -11,7 +11,10 @@ deckRoutes.get("/", async (req,res) => {
     const user = await User.findOne({where: {login} })
     const userId = user.id
     const deck = await Deck.findAll({where: {user_id:userId }})
-    renderTemplate(DeckW, {login, deck}, res)
+    const button = "Создайте новую доску"
+    const mes = "досок"
+    const script = `deck`
+    renderTemplate(DeckW, {login, deck, button, mes, script}, res)
 })
 
 deckRoutes.post("/", async (req, res) => {

@@ -20,7 +20,7 @@ module.exports = function Layout({children, login}){
           crossOrigin="anonymous"
         />
             <link rel='stylesheet' href='/css/index.css' />
-            <link rel='stylesheet' href='/css/navbar.css' />
+            {/* <link rel='stylesheet' href='/css/navbar.css' /> */}
             <script
         src="https://kit.fontawesome.com/d5b51f3ffe.js"
         crossOrigin="anonymous"

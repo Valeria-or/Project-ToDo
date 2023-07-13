@@ -2,6 +2,8 @@ const React = require('react');
 
 module.exports = function Navbar(){
     return(
+        <>
+        <link rel='stylesheet' href='/css/navbar.css' />
         <div>
         <ul>
             <li><a href="/login">Login</a></li>
@@ -9,6 +11,6 @@ module.exports = function Navbar(){
             <li className='home'><a href="/">Home</a></li>
         </ul>
         </div>
-        
+        </>
     )
 }

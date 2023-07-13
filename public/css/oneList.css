@@ -1,0 +1,82 @@
+#parentDiv{
+    display: flex;
+    justify-content: center;
+    margin-top: 130px;
+    
+}
+
+#conteiner{
+    width: 900px;
+    min-height: 450px;
+    border-radius: 10px;
+    background-color: transparent;
+    backdrop-filter: blur(30px);
+    box-shadow: 0 0 25px rgba(0, 0, 0, .5);
+    color: rgb(0, 0, 0, 0.8);
+    border: 1px solid rgb(255, 255, 255, 0.2);
+}
+#body{
+    display: flex;
+    flex-direction: column;
+    width: 900px;
+    min-height: 450px;
+    padding: 50px;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+
+}
+#title{
+    text-align: center;
+    margin-top: 15px;
+}
+#ul{
+    display: flex;
+    flex-direction: column;
+}
+#ulParent{
+    display: flex;
+}
+/* #list{
+    margin-bottom: 100px;
+} */
+/* .todo{
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+} */
+/* .text{
+    font-size: 25px;
+    margin-left: 15px;
+    margin-right: 15px;
+} */
+.delete-icon{
+    cursor: pointer;
+}
+
+#add{
+    display: flex;
+    align-items: center;
+}
+#addText{
+    margin-right: 15px;
+    width: 350px;
+    border-radius: 5px;
+    border: 0px;
+    font-size: 20px;
+}
+#buttonAdd{
+    font-size: 30px;
+    border: 0px;
+    background-color: transparent;
+}
+hr{
+    border-width: 2px;
+}
+.delete-icon{
+    margin-left: 15px;
+    font-size: 17px;
+}
+li{
+    font-size: 25px;
+}
