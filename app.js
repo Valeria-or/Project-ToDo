@@ -12,6 +12,7 @@ const deckRoutes = require('./src/routes/deckRouter');
 const listRoutes = require('./src/routes/listRoutes');
 const trackerRoutes = require('./src/routes/trackerRouter');
 const calendarRoutes = require('./src/routes/calendarRoutes');
+const profileRoutes = require('./src/routes/profileRoutes');
 
 const app = express();
 
@@ -43,6 +44,7 @@ app.use("/deck", deckRoutes)
 app.use("/list", listRoutes)
 app.use("/tracker", trackerRoutes)
 app.use("/calendar", calendarRoutes)
+app.use("/profile", profileRoutes)
 
 app.listen(PORT, () => {
     console.log("Сервер успешно запущен :3")

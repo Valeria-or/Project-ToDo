@@ -4,7 +4,7 @@ async function pok (){
         const response = await fetch("https://api.adviceslip.com/advice");
         const result = await response.json();
         mainDiv.textContent = result.slip.advice
-        console.log(result.slip.advice);
+        console.log(result);
     } catch (error) {
         console.error(error);
     } 
