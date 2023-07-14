@@ -3,6 +3,7 @@ const idCard = document.querySelector("#idCard");
 const list = document.querySelector("#ul");
 const input = document.querySelector("#addText");
 // const body = document.querySelector("#body");
+const no = document.querySelector("#no")
 
 addDelo.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -33,11 +34,12 @@ addDelo.addEventListener("submit", async (e) => {
         body: JSON.stringify(p),
       });
       const result = await response.json();
+      console.log(result)
       if (result.err) {
         alert(result.err);
       } else {
         const newToDo = `
-            <li class="todo" id=${numbetTodoId + 1}>
+            <li class="todo" id=${result.mes}>
             ${inputs.title}
             <span class="delete-icon">
             <i class="far fa-trash-alt"></i>
@@ -50,6 +52,7 @@ addDelo.addEventListener("submit", async (e) => {
 
         list.appendChild(tempDiv.firstElementChild);
 
+        no.textContent = ''
         input.value = "";
       }
     } catch (error) {
@@ -78,7 +81,7 @@ list.addEventListener("click", async (e) => {
                  alert(result.err) 
             } 
             } catch (error) {
-                 alert('Чтото совсем всё плохо :((((', error)
+                //  alert('Чтото совсем всё плохо :((((', error)
             }
     }
 })

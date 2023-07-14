@@ -66,7 +66,7 @@ deckRoutes.post("/:id", async (req, res) => {
         const deckId = deck.id
         const todo = await ToDo.create({body, deck_id: id, checked: false})
     if(todo){
-        res.json({mes: "okey"})
+        res.json({mes: todo.id})
     } else {
         res.json({err: "error"})
     }
@@ -77,6 +77,7 @@ deckRoutes.post("/:id", async (req, res) => {
 
 deckRoutes.delete("/todo", async (req, res) => {
     const { id } = req.body
+    console.log(id)
     const todo = await ToDo.destroy({where:{id}})
     if(todo !== 1){
         res.json({err: "no"})

@@ -4,7 +4,7 @@ const list = document.querySelector("#list")
 const input = document.querySelector("#addText")
 const body = document.querySelector("#body")
 // const check = document.querySelector(".ckeck")
-
+const no = document.querySelector("#no")
 
 addDelo.addEventListener("submit", async (e) => {
     e.preventDefault()
@@ -16,7 +16,6 @@ addDelo.addEventListener("submit", async (e) => {
       } else {
         todoId = todoAll[todoAll.length - 1].id;
       }
-    // const todoId = todoAll[todoAll.length-1].id
     const numbetTodoId = Number(todoId) 
     
     const data = new FormData(addDelo)
@@ -40,7 +39,7 @@ addDelo.addEventListener("submit", async (e) => {
                 alert(result.err)
             } else {
             const newToDo = `
-            <div class="todo" id=${numbetTodoId+1}>
+            <div class="todo" id=${result.mes}>
               <input type="checkbox" class="check"/>
               <span class="text">${inputs.body}</span>
               <span class="delete-icon">
@@ -48,10 +47,13 @@ addDelo.addEventListener("submit", async (e) => {
               </span>
             </div>`;
           
+            console.log(numbetTodoId)
           const tempDiv = document.createElement('div');
           tempDiv.innerHTML = newToDo;
           
           list.appendChild(tempDiv.firstElementChild);
+
+        no.textContent = ''
           
           input.value = '';
             }

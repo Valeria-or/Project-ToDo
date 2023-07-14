@@ -30,7 +30,7 @@ module.exports = function DeckList({ login, card, todo }) {
               </>
           )))
           :
-          (<h3>У вас пока нет досок</h3>)}
+          (<h3 id="no">У вас пока нет дел</h3>)}
               <div className={card.id} id="idCard"></div>
 
             </div>

@@ -19,6 +19,7 @@ module.exports = function Layout({children, login}){
           integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
           crossOrigin="anonymous"
         />
+        <link type="image/x-icon" href="/img/favicon.ico" rel="shortcut icon"></link>
             <link rel='stylesheet' href='/css/index.css' />
             {/* <link rel='stylesheet' href='/css/navbar.css' /> */}
             <script

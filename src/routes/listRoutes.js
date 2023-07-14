@@ -64,7 +64,7 @@ listRoutes.post("/:id", async (req, res) => {
         const deckId = deck.id
         const todo = await OneList.create({title, list_id: id})
     if(todo){
-        res.json({mes: "okey"})
+        res.json({mes: todo.id})
     } else {
         res.json({err: "error"})
     }

@@ -13,22 +13,24 @@ module.exports = function OneLists({ login, card, todo }) {
           <div id="body">
             <div id="ulParent">
 
-            
+             <ul id="ul">
               {todo.length ? (
-                <ul id="ul">
-                  {todo.map((el) => (
+               
+                  todo.map((el) => (
                   <li className="todo" id={el.id} key={el.id}>
                     {el.title}
                     <span className="delete-icon">
                       <i className="far fa-trash-alt"></i>
                     </span>
                   </li>
-                  ))}
-                </ul>
+                  ))
+                
               ) : (
-                <h3>У вас пока нет cписка</h3>
+                <h3 id="no">У вас пока нет cписка</h3>
               )}
+              </ul>
             </div>
+              
               <div className={card.id} id="idCard"></div>
 
             <form name="addDelo">
